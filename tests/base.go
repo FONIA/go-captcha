@@ -7,7 +7,7 @@
 package main
 
 import (
-	"github.com/wenlng/go-captcha/captcha"
+	"go-captcha/captcha"
 	"os"
 )
 

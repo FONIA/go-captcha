@@ -7,8 +7,8 @@
 package assets
 
 import (
-	"github.com/wenlng/go-captcha/captcha/assets/fonts"
-	"github.com/wenlng/go-captcha/captcha/assets/images"
+	"go-captcha/captcha/assets/fonts"
+	"go-captcha/captcha/assets/images"
 )
 
 type AssetData struct {
@@ -78,7 +78,7 @@ func DefaultBinImageList() []string {
 func GetAssetCache(path string) (ret []byte, erro error) {
 	if len(cache) > 0 {
 		for _, asset := range cache {
-			if asset.Path == path{
+			if asset.Path == path {
 				ret = asset.Content
 				return
 			}
@@ -86,18 +86,18 @@ func GetAssetCache(path string) (ret []byte, erro error) {
 	}
 
 	ret, erro = findFontsAsset(path)
-	if len(ret) > 0{
+	if len(ret) > 0 {
 		cache = append(cache, &AssetData{
-			Path: path,
+			Path:    path,
 			Content: ret,
 		})
 		return
 	}
 
 	ret, erro = findImagesAsset(path)
-	if len(ret) > 0{
+	if len(ret) > 0 {
 		cache = append(cache, &AssetData{
-			Path: path,
+			Path:    path,
 			Content: ret,
 		})
 		return
@@ -114,14 +114,13 @@ func GetAssetCache(path string) (ret []byte, erro error) {
 func HasAssetCache(path string) bool {
 	if len(cache) > 0 {
 		for _, asset := range cache {
-			if asset.Path == path{
+			if asset.Path == path {
 				return true
 			}
 		}
 	}
 	return false
 }
-
 
 // ClearAssetCache is a function
 /**
@@ -133,7 +132,7 @@ func ClearAssetCache(paths []string) bool {
 	if len(cache) > 0 {
 		for _, path := range paths {
 			for ak, asset := range cache {
-				if asset.Path == path{
+				if asset.Path == path {
 					cache = append(cache[:ak], cache[(ak+1):]...)
 					break
 				}
@@ -152,14 +151,14 @@ func ClearAssetCache(paths []string) bool {
 func SetAssetCache(path string, content []byte, force bool) bool {
 	if len(cache) > 0 {
 		for _, asset := range cache {
-			if asset.Path == path && !force{
+			if asset.Path == path && !force {
 				return true
 			}
 		}
 	}
 
 	cache = append(cache, &AssetData{
-		Path: path,
+		Path:    path,
 		Content: content,
 	})
 	return true

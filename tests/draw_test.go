@@ -8,7 +8,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/wenlng/go-captcha/captcha"
+	"go-captcha/captcha"
 	"image/color"
 	"image/png"
 	"os"

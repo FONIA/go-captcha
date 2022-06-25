@@ -6,7 +6,7 @@
 
 package captcha
 
-import "github.com/wenlng/go-captcha/captcha/assets"
+import "go-captcha/captcha/assets"
 
 /**
  * @Description: 获取缓存资源
